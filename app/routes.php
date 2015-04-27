@@ -43,8 +43,8 @@ Route::get('my_first_view', function()
 Route::get('passing_data_to_view/{name}', function($name)
 {
 	$data = array(
-					'name' => $name,
-					'another' => 'something else'
+				'name' => $name,			 // These keys will become variables in the View, much like the extract() function
+				'another' => 'something else'
 			);
 	return View::make('my-first-view')->with($data);	//this is the name of the file in app/views folder w/o .php suffix
 });
