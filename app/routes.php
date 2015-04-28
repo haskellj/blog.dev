@@ -13,7 +13,12 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	$data = array(
+				'aboutActive' => "active",		// These keys will become variables in the View, much like the PHP extract() function
+				'resumeActive' => '',
+				'portfolioActive' => '',
+			);
+	return View::make('layouts.master')->with($data);
 });
 
 Route::get('sayhello/{name}', function($name)		// the first parameter is the url extension
@@ -27,12 +32,12 @@ Route::get('sayhello/{name}', function($name)		// the first parameter is the url
 
 Route::get('resume', function()
 {
-	return "This is my resume.";
+	return View::make('resume');
 });
 
 Route::get('portfolio', function()
 {
-	return "This is my portfolio.";
+	return View::make('portfolio');
 });
 
 Route::get('my_first_view', function()
@@ -43,10 +48,11 @@ Route::get('my_first_view', function()
 Route::get('passing_data_to_view/{name}', function($name)
 {
 	$data = array(
-				'name' => $name,			 // These keys will become variables in the View, much like the extract() function
+				'name' => $name,			 // These keys will become variables in the View, much like the PHP extract() function
 				'another' => 'something else'
 			);
 	return View::make('my-first-view')->with($data);	//this is the name of the file in app/views folder w/o .php suffix
+	// return View::make('my-first-view')->with('name', $name);	//this is how you could pass a single variable
 });
 
 Route::get('rolldice/{guess}', function($guess)
