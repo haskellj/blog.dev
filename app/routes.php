@@ -11,60 +11,23 @@
 |
 */
 
-Route::get('/', function()
-{
-	$data = array(
-				'aboutActive' => "active",		// These keys will become variables in the View, much like the PHP extract() function
-				'resumeActive' => '',
-				'portfolioActive' => '',
-			);
-	return View::make('layouts.master')->with($data);
-});
+Route::get('/', 'HomeController@showHome');
 
-Route::get('sayhello/{name}', function($name)		// the first parameter is the url extension
-{
-	if($name == "Chris") {
-		return Redirect::to('/');
-	} else {
-		return "Hello, $name!";
-	}
-});
+Route::get('resume', 'HomeController@showResume');
 
-Route::get('resume', function()
-{
-	return View::make('resume');
-});
+Route::get('portfolio', 'HomeController@showPortfolio');
 
-Route::get('portfolio', function()
-{
-	return View::make('portfolio');
-});
 
-Route::get('my_first_view', function()
-{
-	return View::make('my-first-view');	//this is the name of the file in app/views folder w/o .php suffix
-});
 
-Route::get('passing_data_to_view/{name}', function($name)
-{
-	$data = array(
-				'name' => $name,			 // These keys will become variables in the View, much like the PHP extract() function
-				'another' => 'something else'
-			);
-	return View::make('my-first-view')->with($data);	//this is the name of the file in app/views folder w/o .php suffix
-	// return View::make('my-first-view')->with('name', $name);	//this is how you could pass a single variable
-});
 
-Route::get('rolldice/{guess}', function($guess)
-{
-	// if (isset($_GET['guess'])){
-		$data = array(
-				'random' => rand(1,6),
-				'guess' => $guess
-				);
-		return View::make('roll-dice')->with($data);
-	// }
-});
+//  Below are the practice example routes we created when first learning about Laravel
+Route::get('sayhello/{name}', 'HomeController@sayHello');
+
+Route::get('my_first_view', 'HomeController@myFirstView');
+
+Route::get('passing_data_to_view/{name}', 'HomeController@passingDataToView');
+
+Route::get('rolldice/{guess}', 'HomeController@guess');
 
 
 
