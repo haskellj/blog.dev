@@ -22,7 +22,7 @@ class HomeController extends BaseController {
 				'resumeActive' => '',
 				'portfolioActive' => '',
 			);
-		return View::make('layouts.master')->with($data);
+		return View::make('about')->with($data);
 	}
 
 	public function showResume()

@@ -29,9 +29,9 @@
 			  	<section class="top-bar-section">
 				    <!-- Right Nav Section -->
 				    <ul class="right">
-				      	<li><a href="resume">Resume</a></li>
+				      	<li><a href="{{{ action('HomeController@showResume') }}}">Resume</a></li>
 				      	<li class="has-dropdown not-click">
-				        	<a href="portfolio">Portfolio</a>
+				        	<a href="{{{ action('HomeController@showPortfolio') }}}">Portfolio</a>
 				        	<ul class="dropdown">
 				          		<li><a href="http://adlister.dev">adLister</a></li>
 				          		<li><a href="#">Capstone Project</a></li>
