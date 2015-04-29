@@ -58,6 +58,14 @@ h3 a:active {
     color: #E7FBFF;
 }
 
+#subhero {
+    margin-bottom: 33%;
+    /*-webkit-text-stroke: 0.1px #51759E;*/
+    color: rgb(52, 75, 101);
+    text-shadow: 1px 1px 0 #51759E,
+                 1px 1px 0 #51759E;
+}
+
 .call {
     font-family: 'Anonymous Pro', monospace;
     font-weight: 400;
@@ -68,7 +76,8 @@ h3 a:active {
 .arrow {
     color: rgba(255, 255, 255, 0.3);
     font-size: 4rem;
-    margin-top: 6rem;
+    margin-top: -1rem;
+    margin-bottom: -2rem;
 }
 
     @media screen and (max-width: 320px) {
@@ -77,11 +86,11 @@ h3 a:active {
         }
     }
 
-    @media screen and (max-width: 640px) {
+    /*@media screen and (max-width: 640px) {
         p.arrow {
             margin-top: 3rem;
         }
-    }
+    }*/
 
 .button {
     font-family: 'Montserrat', Verdana, sans-serif;
@@ -137,35 +146,58 @@ h3 a:active {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 30% 75%;
-    height: 650px !important;
+    height: 100%;
     width: 100%;
     text-align: center;
     position: relative;
-    padding: 130px 20px 0 5px;
+    padding: 135px 0px 0px 0px;
 }
-    @media screen and (min-width: 1420px) {
+   /* @media screen and (min-width: 1420px) {
         #homepage-hero {
-            height: 730px;
+            height: 770px !important;
+            padding: 185px 0px 30px 0px;
+        }
+    }*/
+
+    /* iPad 3/4 */
+    @media screen and (max-width: 1025px) {
+        #subhero {
+            margin-bottom: 17%;
         }
     }
 
-    @media screen and (max-width: 640px) {
+    /*@media screen and (max-width: 640px) {
+        #subhero {
+            margin-bottom: 30%;
+        }
+    }*/
+
+    /*@media screen and (max-width: 460px) {
         #homepage-hero {
-            height: 680px;
-            padding: 150px 5px 30px 5px;
+            height: 441px !important;
+            padding: 14px 0px 30px 0px;
         }
     }
 
-    @media screen and (max-width: 460px) {
+    @media screen and (max-width: 422px) {
         #homepage-hero {
-            padding: 130px 5px 30px 5px;
+            height: 441px !important;
+            padding: 14px 0px 30px 0px;
         }
     }
 
-    @media screen and (max-width: 320px) {
+    /* iPhone 6 
+    /*@media screen and (max-width: 375px) {
         #homepage-hero {
-            height: 600px;
-            padding: 50px 5px 30px 5px;
+            height: 670px !important;
+            padding: 165px 0px 30px 0px;
+        }
+    }
+
+    @media screen and (max-width: 320px) { 
+        #homepage-hero {
+            height: 450px !important;
+            padding: 130px 0px 30px 0px;
         }
     }
 
@@ -354,10 +386,11 @@ span.prefix {
 
 .top-bar .name h1 a {
     font-family: 'Montserrat', Verdana, sans-serif;
+    font-size: 1em;
     font-weight: 400;
     text-transform: lowercase;
     letter-spacing: 0.0875rem;
-    color: #7FDBFF;
+    color: #fff;
 }
     .top-bar .name h1 a:hover {
         color: #82BAED;
@@ -383,17 +416,20 @@ span.prefix {
     color: #7FDBFF;
 }
     .top-bar-section li:not(.has-form) a:not(.button) {
-        background: #1A3552;
+        color: #fff;
+        font-size: 1em;
+        background: #31271d;
     }
         .top-bar-section li:not(.has-form) a:not(.button):hover {
             background-color: #221c35;
             background: #001F3F;
             color: #82BAED;
         }
-            /*.top-bar-section li.active:not(.has-form) a:not(.button) {
-                color: #7FDBFF;
-                background: #1A3552;
-            }*/
+            .top-bar-section li.active:not(.has-form) a:not(.button) {
+                color: #fff;
+                font-size: 1em;
+                background: rgb(52, 75, 101);
+            }
                 .top-bar-section li.active:not(.has-form) a:not(.button):hover {
                     background: #001f3f;
                     color: #82BAED;
