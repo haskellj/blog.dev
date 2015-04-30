@@ -9,7 +9,7 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$posts = Post::all();
+		$posts = Post::paginate(4);
 		$data = ['posts' => $posts];
 		return View::make('posts.index')->with($data);
 	}
@@ -69,6 +69,8 @@ class PostsController extends \BaseController {
 			return View::make('posts.show')->with(['post' => $post]);
 
 		} catch (Exception $e) {
+
+			Log::error($e);
 			$data = [
 					'error' => $e->getMessage(),
 					'id' 	=> $id

@@ -483,4 +483,13 @@ span.prefix {
     text-align: right;
 }
 
+/*.pagination-centered {
+    width: 175px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0 !important;
+    border: 1px solid #C3C3C3;
+    border-radius: 15px;
+    text-align: center;
+}*/
 
