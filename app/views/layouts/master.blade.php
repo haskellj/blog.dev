@@ -25,7 +25,7 @@
 				@yield('error')
 			</div>
 			<div id='form'>
-				@yield('create-post')
+				@yield('post-form')
 			</div>
 			<div id='aboutContent'>
 				@yield('about')
