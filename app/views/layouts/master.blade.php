@@ -22,6 +22,7 @@
 			</div>
 			<div id='showPost'>
 				@yield('one-post')
+				@yield('error')
 			</div>
 			<div id='form'>
 				@yield('create-post')
