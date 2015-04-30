@@ -19,6 +19,36 @@ Route::get('portfolio', 'HomeController@showPortfolio');
 
 Route::resource('posts', 'PostsController');
 
+Route::get('orm-test', function()		//for testing the different tries below
+{
+	// try {
+	// 	$post = Post::findOrFail(1);
+	// 	$post->delete();
+	// 	// $post->title = "The is the updated title";
+	// 	// $post->save();
+	// 	return $post->title;
+	// } catch (Exception $e) {
+	// 	return $e->getMessage();
+	// }
+
+	try{
+		$posts = Post::all();
+		return $posts;
+	} catch (Exception $e){
+		return $e->getMessage();
+	}
+
+	// $post = new Post();
+	// $post->title = "New Blog";
+	// $post->body = "Lorem ipsum dolor";
+	// $post->save();
+
+	// $post2 = new Post();
+	// $post2->title = "Another Blog";
+	// $post2->body = "2Lorem 2ipsum 2dolor";
+	// $post2->save();
+});
+
 
 
 

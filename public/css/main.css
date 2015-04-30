@@ -151,6 +151,7 @@ h3 a:active {
     text-align: center;
     position: relative;
     padding: 135px 0px 0px 0px;
+    margin-bottom: 25px;
 }
    /* @media screen and (min-width: 1420px) {
         #homepage-hero {
@@ -364,26 +365,24 @@ span.prefix {
     background-color: #f8f8f8;
 }
 
+/*---------------------------------------------------*/
+/*              Begin Navbar                         */
+/*---------------------------------------------------*/
 .top-bar {
-    background-color: #31271d;
-    opacity: 0.4;
-    -webkit-box-shadow: 0px 3px 2px 0px rgba(0, 22, 45, 0.65);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-    -moz-box-shadow:    0px 3px 2px 0px rgba(0, 22, 45, 0.65);  /* Firefox 3.5 - 3.6 */
-    box-shadow:         0px 3px 2px 0px rgba(0, 22, 45, 0.65);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+    background: rgba(49, 39 , 29, 0.4);
+    -webkit-box-shadow: 0px 3px 2px 0px rgba(0, 22, 45, 0.5);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    0px 3px 2px 0px rgba(0, 22, 45, 0.5);  /* Firefox 3.5 - 3.6 */
+    box-shadow:         0px 3px 2px 0px rgba(0, 22, 45, 0.5);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 
 }
 
-.top-bar-section ul li {
-    background: #1A3552;
-}
-
+/* navbar links */
 .top-bar-section ul li > a {
-    font-family: 'Anonymous Pro', monospace;
-    font-weight: 400;
-    color: #7FDBFF;
+    /*font-family: 'Anonymous Pro', monospace;*/
     letter-spacing: 0.025rem;
 }
 
+/* Logo in nav */
 .top-bar .name h1 a {
     font-family: 'Montserrat', Verdana, sans-serif;
     font-size: 1em;
@@ -396,29 +395,15 @@ span.prefix {
         color: #82BAED;
     }
 
-.logo-liste {
-    font-family: 'Montserrat Alternates', 'Montserrat', Verdana, sans-serif;
-    font-weight: 400;
-    text-transform: lowercase;
-}
-
-.top-bar .toggle-topbar.menu-icon a {
-    font-weight: 400;
-    letter-spacing: 0.0875rem;
-    color: #7FDBFF;
-}
-    .top-bar .toggle-topbar.menu-icon a:hover {
-        color: #82BAED;
-    }
-
-.top-bar-section li.hover > a:not(.button) {
+/*.top-bar-section li.hover > a:not(.button) {
     background: #001f3f;
     color: #7FDBFF;
-}
+}*/
+    /* right navbar divs */
     .top-bar-section li:not(.has-form) a:not(.button) {
         color: #fff;
         font-size: 1em;
-        background: #31271d;
+        background: rgba(49, 39 , 29, 0.4);
     }
         .top-bar-section li:not(.has-form) a:not(.button):hover {
             background-color: #221c35;

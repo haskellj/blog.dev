@@ -44,7 +44,7 @@
 
 				    <!-- Left Nav Section -->
 				    <ul class="left">
-				      <li class='active'><a href="#">About Me</a></li>
+				      <li class='active'><a href="{{{action('HomeController@showHome')}}}">About Me</a></li>
 				    </ul>
 			    </section>
 			</nav>

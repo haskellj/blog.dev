@@ -17,6 +17,12 @@
 <!-- ========== Start main section ========== -->
 
 		<div id="main" class="large-10 large-offset-1 columns">
+			<div id='allPosts'>
+				@yield('all-posts')
+			</div>
+			<div id='showPost'>
+				@yield('one-post')
+			</div>
 			<div id='form'>
 				@yield('create-post')
 			</div>
