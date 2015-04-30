@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('create-post')
+@section('post-form')
 	<fieldset>
 		<legend><h3>Create a New Post</h3></legend>
 			<form id="form" method='POST' action="{{{ action('PostsController@store') }}}">
