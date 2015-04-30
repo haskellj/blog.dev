@@ -64,10 +64,17 @@ class PostsController extends \BaseController {
 	public function show($id)
 	{
 		try{
+
 			$post = Post::findOrfail($id);
-			return View::make('posts.show')->with(['post'=>$post]);
+			return View::make('posts.show')->with(['post' => $post]);
+
 		} catch (Exception $e) {
-			return $e->getMessage();
+			$data = [
+					'error' => $e->getMessage(),
+					'id' 	=> $id
+			];
+
+			return View::make('errors.exception')->with($data);
 		}
 	}
 
