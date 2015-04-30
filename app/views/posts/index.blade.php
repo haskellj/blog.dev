@@ -6,11 +6,9 @@
 		<div class='row'>
 			<div class='large-6 columns'>
 				<div class='panel'>
-					<ul>
-						<li>{{{ $post->title }}}</li>
-						<li>{{{ $post->body }}}</li>
-						<li>{{{ $post->created_at }}}</li>
-					</ul>
+					<h3>{{{ $post->title }}}</h3>
+					<h5>{{{ $post->body }}}</h5>
+					<p>{{{ $post->created_at }}}</p>
 				</div>
 			</div>
 		</div>
