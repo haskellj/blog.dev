@@ -9,6 +9,10 @@
 				{{ $errors->first('body', '<span class="help-block error">:message</span>') }}
 				<textarea type='text' name='body' placeholder='Body'>{{{ Input::old('body') }}}</textarea>
 				<input type='submit' class='button round' name='create' value='Post'>
+
+			{{-- Add CSRF protection, which is enabled in BaseController --}}
+			{{ Form::token() }}
+
 			</form>
 	</fieldset>
 @stop
