@@ -3,11 +3,12 @@
 @section('post-form')
 {{-- {{ Route::currentRouteAction() }} --}}
 	<fieldset>
-		<legend><h3>Edit Post</h3></legend>
 			@if($method=="edit")
-				<form id="form" method='POST' action="{{{ action('PostsController@update', $postId) }}}">
+				<legend><h3>Edit Post</h3></legend>
+				<form id="form" method='POST' action="{{{ action('PostsController@update', $id) }}}">
 					<input type="hidden" name="_method" value="PUT">
 			@else
+				<legend><h3>Create a New Post</h3></legend>
 				<form id="form" method='POST' action="{{{ action('PostsController@store') }}}">
 					<input type="hidden" name="_method" value="POST">
 			@endif

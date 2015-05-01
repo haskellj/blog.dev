@@ -483,6 +483,24 @@ span.prefix {
     text-align: right;
 }
 
+.date {
+    text-align: right;
+    margin-bottom: 0;
+}
+
+.alert-box.warning {
+    background: rgba(240, 65, 36, 0.4);
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.alert-box.success {
+    background: rgba(67, 172, 106, 0.4);
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
 /*.pagination-centered {
     width: 175px;
     margin-left: auto;
