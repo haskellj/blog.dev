@@ -22,6 +22,11 @@ Route::resource('posts', 'PostsController');
 Route::get('orm-test', function()		//for testing the different tries below
 {
 	// try {
+	// 	var_dump(empty(Input::old()));
+	// } catch (Exception $e) {
+	// 	return $e->getMessage();
+	// }
+	// try {
 	// 	$post = Post::findOrFail(1);
 	// 	$post->delete();
 	// 	// $post->title = "The is the updated title";
@@ -31,12 +36,12 @@ Route::get('orm-test', function()		//for testing the different tries below
 	// 	return $e->getMessage();
 	// }
 
-	try{
-		$posts = Post::all();
-		return $posts;
-	} catch (Exception $e){
-		return $e->getMessage();
-	}
+	// try{
+	// 	$posts = Post::all();
+	// 	return $posts;
+	// } catch (Exception $e){
+	// 	return $e->getMessage();
+	// }
 
 	// $post = new Post();
 	// $post->title = "New Blog";

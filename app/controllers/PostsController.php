@@ -22,7 +22,9 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('posts.create');
+		$input = Input::all();
+		$processedInput = self::getOldPostData($input);
+		return View::make('posts.edit')->with(['method'=>'create', 'processedInput'=> $processedInput]);
 	}
 
 
@@ -52,6 +54,20 @@ class PostsController extends \BaseController {
 
 			return Redirect::action('PostsController@index');
 		}
+	}
+	protected static function getOldPostData($formInput, $id=null)
+	{
+			$postData =  [];
+			$post = Post::find($id);
+			if(empty($post)){
+				$postData["title"] = (empty(Input::old('title'))?null:Input::old('title'));
+				$postData["body"] = (empty(Input::old('body'))?null:Input::old('body'));
+			}
+			else{
+				$postData["title"] =  $post->title;
+				$postData["body"] = $post->body;
+			}
+			return $postData;
 	}
 
 
@@ -89,9 +105,16 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$post = Post::findOrFail($id);
+		$message = null;
+		$post = Post::find($id)->toArray();
+		$processedInput = self::getOldPostData($post, $post["id"]);
 
-		return View::make('posts.edit')->with(['post' => $post]);
+		$data = [
+				'method'=>'edit',
+				'processedInput' => $processedInput,
+				'postId' => $post['id']
+		];
+		return View::make('posts.edit')->with($data);
 		// return Redirect::back()->withInput();
 	}
 

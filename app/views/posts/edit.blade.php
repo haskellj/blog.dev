@@ -1,16 +1,26 @@
 @extends('layouts.master')
 
 @section('post-form')
+{{-- {{ Route::currentRouteAction() }} --}}
 	<fieldset>
 		<legend><h3>Edit Post</h3></legend>
-			<form id="form" method='POST' action="{{{ action('PostsController@update', $post->id) }}}">
-				<input type="hidden" name="_method" value="PUT">
+			@if($method=="edit")
+				<form id="form" method='POST' action="{{{ action('PostsController@update', $postId) }}}">
+					<input type="hidden" name="_method" value="PUT">
+			@else
+				<form id="form" method='POST' action="{{{ action('PostsController@store') }}}">
+					<input type="hidden" name="_method" value="POST">
+			@endif
+					{{ $errors->first('title', '<span class="help-block error">:message</span>') }}
+					<input type='text' name='title' value="{{{$processedInput['title']}}}" placeholder="Title">
+					{{ $errors->first('body', '<span class="help-block error">:message</span>') }}
+					<textarea type='text' name='body' placeholder='Body'>{{{$processedInput['body']}}}</textarea>
 
-				{{ $errors->first('title', '<span class="help-block error">:message</span>') }}
-				<input type='text' name='title' value="{{{ (Input::old('title')) }}}{{{ $post['title'] }}}" placeholder="Title">
-				{{ $errors->first('body', '<span class="help-block error">:message</span>') }}
-				<textarea type='text' name='body' placeholder='Body'>{{{ Input::old('body') }}}{{{ $post['body']}}}</textarea>
-				<input type='submit' class='button round' name='edit' value='Submit Changes'>
+					@if($method="edit")
+						<input type='submit' class='button round' name='edit' value='Save Changes'>
+					@else
+						<input type='submit' class='button round' name='create' value='Post'>
+					@endif
 
 			{{-- Add CSRF protection, which is enabled in BaseController --}}
 			{{ Form::token() }}
