@@ -8,7 +8,8 @@ class PostsController extends \BaseController {
 	 * @return Response
 	 */
 	public function index()
-	{
+	{	// Instead of just $post = Post::all();
+		// Get all posts and create pagination links based off them.
 		$posts = Post::paginate(4);
 		$data = ['posts' => $posts];
 		return View::make('posts.index')->with($data);
@@ -22,9 +23,12 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		$input = Input::all();
-		$processedInput = self::getOldPostData($input);
-		return View::make('posts.edit')->with(['method'=>'create', 'processedInput'=> $processedInput]);
+		$processedInput = self::getOldPostData();
+		$data = [
+				'method'=>'create',
+				'processedInput'=> $processedInput
+		];
+		return View::make('posts.edit')->with($data);
 	}
 
 
@@ -40,7 +44,8 @@ class PostsController extends \BaseController {
 
 	    // attempt validation
 	    if ($validator->fails()) {
-
+	    	// temporary error message that will load on redirected page.
+	    	Session::flash('errorFlash', 'Post creation failed, please see errors below.');
 	        // validation failed, redirect to the post create page with validation errors and old inputs
 	    	return Redirect::to('posts/create#form')->withInput()->withErrors($validator);
 
@@ -52,20 +57,31 @@ class PostsController extends \BaseController {
 			$post->body = Input::get('body');
 			$post->save();
 
+			// temporary success message that will load on redirected page.
+			Session::flash('successFlash', 'New post was created successfully!');
 			return Redirect::action('PostsController@index');
 		}
 	}
-	protected static function getOldPostData($formInput, $id=null)
+	protected static function getOldPostData($id=null)
 	{
 			$postData =  [];
 			$post = Post::find($id);
+
+			// If $id does not exist, $post will be empty, so we must be creating a new post
+			// Check for old input and make it stick if it exists
 			if(empty($post)){
-				$postData["title"] = (empty(Input::old('title'))?null:Input::old('title'));
-				$postData["body"] = (empty(Input::old('body'))?null:Input::old('body'));
+				$postData["title"] = ( empty(Input::old('title')) ? null : Input::old('title') );
+				$postData["body"]  = ( empty(Input::old('body')) ? null : Input::old('body') );
 			}
-			else{
-				$postData["title"] =  $post->title;
-				$postData["body"] = $post->body;
+			// If $post exists, we must be editing.
+			// Check for old input and make it stick if it exists
+			elseif (!empty(Input::old())) {
+				$postData['title'] = Input::old('title');
+				$postData['body']  = Input::old('body');
+			// If we're editing and there's no new input, generate data from database
+			} else {
+				$postData["title"] = $post->title;
+				$postData["body"]  = $post->body;
 			}
 			return $postData;
 	}
@@ -105,14 +121,12 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$message = null;
-		$post = Post::find($id)->toArray();
-		$processedInput = self::getOldPostData($post, $post["id"]);
+		$processedInput = self::getOldPostData($id);
 
 		$data = [
 				'method'=>'edit',
 				'processedInput' => $processedInput,
-				'postId' => $post['id']
+				'id' => $id
 		];
 		return View::make('posts.edit')->with($data);
 		// return Redirect::back()->withInput();
@@ -132,7 +146,8 @@ class PostsController extends \BaseController {
 
 	    // attempt validation
 	    if ($validator->fails()) {
-
+	    	// temporary error message that will load on redirected page.
+	    	Session::flash('errorFlash', 'Update failed, please see errors below.');
 	        // validation failed, redirect to the post edit page with validation errors and old inputs
 	    	return Redirect::to("posts/$id/edit#form")->withInput()->withErrors($validator);
 
@@ -144,6 +159,8 @@ class PostsController extends \BaseController {
 			$update->body = Input::get('body');
 			$update->save();
 
+			// temporary success message that will load on redirected page.
+			Session::flash('successFlash', 'Update was successful!');
 			return View::make("posts.show")->with(['post' => $update]);
 		}
 	}
@@ -157,7 +174,12 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		return "Will not be viewable in browser.\nWill delete post with id: $id";
+		$post = Post::findOrFail($id);
+		$post->delete();
+
+		Session::flash('successFlash', 'Post successfully deleted.');
+
+		return Redirect::action('PostsController@index');
 	}
 
 
