@@ -10,11 +10,12 @@
 
 	@foreach($posts as $post)
 		<div class='row'>
-			<div class='large-6 columns'>
+			<div class='large-10 columns'>
 				<div class='panel'>
+					<p class='date'>Created on: {{{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}}</p>
+					<p class='date'>Last updated on: {{{$post->updated_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A')}}}</p>
 					<h3><a href="{{{ action('PostsController@show', $post->id) }}}">{{{ $post->title }}}</a></h3>
 					<h5>{{{ $post->body }}}</h5>
-					<p>{{{ $post->created_at }}}</p>
 				</div>
 			</div>
 		</div>
