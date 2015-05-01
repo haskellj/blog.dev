@@ -25,7 +25,7 @@ class PostsController extends \BaseController {
 	{
 		$processedInput = self::getOldPostData();
 		$data = [
-				'method'=>'create',
+				'method'		=>'create',
 				'processedInput'=> $processedInput
 		];
 		return View::make('posts.edit')->with($data);
@@ -124,9 +124,9 @@ class PostsController extends \BaseController {
 		$processedInput = self::getOldPostData($id);
 
 		$data = [
-				'method'=>'edit',
+				'method'		 =>'edit',
 				'processedInput' => $processedInput,
-				'id' => $id
+				'id' 			 => $id
 		];
 		return View::make('posts.edit')->with($data);
 		// return Redirect::back()->withInput();
