@@ -10,7 +10,7 @@
 
 	@foreach($posts as $post)
 		<div class='row'>
-			<div class='large-10 columns'>
+			<div class='large-10 medium-10 medium-centered large-centered columns'>
 				<div class='panel'>
 					<p class='date'>Created on: {{{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}}</p>
 					<p class='date'>Last updated on: {{{$post->updated_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A')}}}</p>
