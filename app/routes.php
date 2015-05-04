@@ -17,6 +17,8 @@ Route::get('resume', 'HomeController@showResume');
 
 Route::get('portfolio', 'HomeController@showPortfolio');
 
+Route::get('updateall', 'HomeController@updateAll');
+
 Route::resource('posts', 'PostsController');
 
 Route::get('test404', function()
