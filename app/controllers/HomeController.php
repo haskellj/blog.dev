@@ -36,6 +36,16 @@ class HomeController extends BaseController {
 	}
 
 
+	public function updateAll()
+	{
+		$posts = Post::all();
+		
+		foreach($posts as $post){
+			$post->slug = $post->title;	// will connect individual words in the title with hyphens for use as a url appendage
+			$post->save();
+		}
+	}
+
 
 
 //  Below are the practice example routes we created when first learning about Laravel
