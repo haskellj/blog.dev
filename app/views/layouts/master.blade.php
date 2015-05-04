@@ -10,6 +10,7 @@
 </head>
 <body>
 	<div id="wrap" class="clearfix">
+		@yield('error')
 		<header>
 			@include('partials.navbar')
 		</header>
@@ -33,7 +34,7 @@
 			</div>
 			<div id='showPost'>
 				@yield('one-post')
-				@yield('error')
+				<!-- @yield('error') -->
 			</div>
 			<div id='form'>
 				@yield('post-form')
