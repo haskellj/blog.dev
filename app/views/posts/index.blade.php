@@ -14,7 +14,7 @@
 				<div class='panel'>
 					<p class='date'>Created on: {{{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}}</p>
 					<p class='date'>Last updated: {{{ $post->updated_at }}}</p>
-					<h3><a href="{{{ action('PostsController@show', $post->id) }}}">{{{ $post->title }}}</a></h3>
+					<h3><a href="{{{ action('PostsController@show', $post->slug) }}}">{{{ $post->title }}}</a></h3>
 					<h5>{{{ $post->body }}}</h5>
 				</div>
 			</div>
