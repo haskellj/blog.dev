@@ -10,7 +10,7 @@ class PostsController extends \BaseController {
 	public function index()
 	{	// Instead of just $post = Post::all();
 		// Get all posts and create pagination links based off them.
-		$posts = Post::paginate(4);
+		$posts = Post::orderBy('id', 'desc')->paginate(4);
 		$data = ['posts' => $posts];
 		return View::make('posts.index')->with($data);
 	}
@@ -97,11 +97,18 @@ class PostsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($idOrSlug)
 	{
 		try{
+			// If passed parameter is an $id
+			$post = Post::find($idOrSlug);
 
-			$post = Post::findOrFail($id);
+			// If passed parameter was not an $id, it should be a $slug
+			// otherwise fail and throw exception
+			if(!$post){
+				$post = Post::where('slug', '=', $idOrSlug)->firstOrFail();
+			}
+			
 			return View::make('posts.show')->with(['post' => $post]);
 
 		} catch (Exception $e) {
