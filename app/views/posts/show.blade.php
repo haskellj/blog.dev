@@ -8,7 +8,7 @@
 				<h3>{{{$post->title}}}</h3>
 				<h5>{{{$post->body}}}</h5>
 				<p class='date'>Created on: {{{$post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A')}}}</p>
-				<p class='date'>Last updated on: {{{$post->updated_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A')}}}</p>
+				<p class='date'>Last updated: {{{ $post->updated_at }}}</p>
 			</div>
 			<div class='row'>
 				<div class='large-3 medium-4 columns'>
