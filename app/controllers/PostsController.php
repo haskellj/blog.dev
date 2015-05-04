@@ -58,6 +58,7 @@ class PostsController extends \BaseController {
 			$post = new Post;
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
+			$post->slug = Input::get('title');	// will connect individual words in the title with hyphens for use as a url appendage
 			$post->save();
 
 			// temporary success message that will load on redirected page.
@@ -155,6 +156,7 @@ class PostsController extends \BaseController {
 			$update = Post::findOrFail($id);
 			$update->title = Input::get('title');
 			$update->body = Input::get('body');
+			$update->slug = Input::get('title');	// will connect individual words in the title with hyphens for use as a url appendage
 			$update->save();
 
 			// temporary success message that will load on redirected page.
