@@ -19,6 +19,11 @@ Route::get('portfolio', 'HomeController@showPortfolio');
 
 Route::resource('posts', 'PostsController');
 
+Route::get('test404', function()
+{
+	App::abort(404);
+});
+
 Route::get('orm-test', function()		//for testing the different tries below
 {
 	// try {
