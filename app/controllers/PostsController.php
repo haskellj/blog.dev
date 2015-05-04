@@ -44,6 +44,9 @@ class PostsController extends \BaseController {
 
 	    // attempt validation
 	    if ($validator->fails()) {
+	    	// Log the error with all the user's input
+	    	Log::info(Input::all());
+
 	    	// temporary error message that will load on redirected page.
 	    	Session::flash('errorFlash', 'Post creation failed, please see errors below.');
 	        // validation failed, redirect to the post create page with validation errors and old inputs
@@ -103,12 +106,7 @@ class PostsController extends \BaseController {
 		} catch (Exception $e) {
 
 			Log::error($e);
-			$data = [
-					'error' => $e->getMessage(),
-					'id' 	=> $id
-			];
-
-			return View::make('errors.exception')->with($data);
+			App::abort(404);
 		}
 	}
 
