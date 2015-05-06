@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('post-form')
+@section('form')
 {{-- {{ Route::currentRouteAction() }} --}}
 	<div class='row'>
 		<div class='large-8 medium-8 large-centered medium-centered columns'>
