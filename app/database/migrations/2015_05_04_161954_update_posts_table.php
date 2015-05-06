@@ -27,7 +27,7 @@ class UpdatePostsTable extends Migration {
 	{
 		Schema::table('posts', function(Blueprint $table)
 		{
-			//
+			$table->dropColumn('slug');
 		});
 	}
 
