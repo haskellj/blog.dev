@@ -15,4 +15,12 @@ return array(
 
 	'debug' => true,
 
+	'providers' => append_config(array (
+		'Barryvdh\Debugbar\ServiceProvider'
+	))
+
+	'aliases' => append_config(array(
+		'Debugbar' 	=> 'Barryvdh\Debugbar\Facade',
+	))
+
 );
