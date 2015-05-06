@@ -2,6 +2,11 @@
 
 class PostsController extends \BaseController {
 
+	public function __construct()
+	{
+		$this->beforeFilter('auth', ['except' => ['index', 'show']]);
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -10,7 +15,7 @@ class PostsController extends \BaseController {
 	public function index()
 	{	// Instead of just $post = Post::all();
 		// Get all posts and create pagination links based off them.
-		$posts = Post::orderBy('id', 'desc')->paginate(4);
+		$posts = Post::with('user')->orderBy('id', 'desc')->paginate(4);
 		$data = ['posts' => $posts];
 		return View::make('posts.index')->with($data);
 	}
