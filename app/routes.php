@@ -13,6 +13,13 @@
 
 Route::get('/', 'HomeController@showHome');
 
+//=========== Login/out procedure routes ==============
+Route::get('login', 'HomeController@login');
+
+Route::post('login', 'HomeController@attemptLogin');
+
+Route::get('logout', 'HomeController@logout');
+//=====================================================
 Route::get('resume', 'HomeController@showResume');
 
 Route::get('portfolio', 'HomeController@showPortfolio');
