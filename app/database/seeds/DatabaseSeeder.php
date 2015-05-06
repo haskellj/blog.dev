@@ -11,6 +11,11 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
+		// delete pre-existing versions of tables in the opposite order they 
+		// were seeded in to avoid foreign key conflict errors
+		DB::table('posts')->delete();
+		DB::table('users')->delete();
+
 		Eloquent::unguard();
 
 		$this->call('UserTableSeeder');
@@ -24,8 +29,6 @@ class UserTableSeeder extends Seeder {
 	// Fill db with users
 	public function run()
 	{
-		DB::table('users')->delete();
-
 		$faker = Factory::create();
 
 		for($i = 0; $i < 100; $i++) {
@@ -63,23 +66,20 @@ class PostsTableSeeder extends Seeder {
 	// Fill db with users
 	public function run()
 	{
-		DB::table('posts')->delete();
-		$users = User::all();
-
 		$faker = Factory::create();
 
 		for($i = 0; $i < 101; $i++) {
 			$words = rand(3, 8);
-			$moreWords = rand(10, 50);
 			$title = $faker->sentence($words);
-			$body = $faker->sentence($moreWords);
-			$user_id = rand(1, 100);
+			$body = $faker->realText();
+			// $user_id = rand(1, 100);
+			$user = User::all()->random();
 
 			$post = Post::create(array(
 				'title' => $title,
 				'body' => $body,
 				'slug' => $title,
-				'user_id' => $user_id
+				'user_id' => $user->user_id
 			));
 		}
 
