@@ -14,7 +14,8 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'users';
+	protected $table      = 'users';	//not necessary because Laravel knows based on the class name, but it doesn't hurt anything
+	protected $primaryKey = 'user_id';	//if the primary key is not "id", then Laravel REQUIRES this property for Auth::check() to remain persistent
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -23,19 +24,33 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+	// rules for creating a user or logging in
+	public static $rules = [
+		'username_or_email' => 'required',
+		'password'       	=> 'required'
+	];
 
-	// store all usernames as lower-case
+
+	// Mutator that stores all usernames as lower-case
 	public function setUsernameAttribute($value)
 	{
 	    $this->attributes['username'] = strtolower($value);
 	}
 
-	// hash all passwords before storing
+	// Mutator that hashes all passwords before storing
 	public function setPasswordAttribute($value)
 	{
 	    $this->attributes['password'] = Hash::make($value);
 	}
 
+	// Define the relationship between a user and their posts
+	public function posts()
+	{
+		// connects each user to their posts
+		// the first parameter is the Post class, the second is the foreign-key, and the third is the local key that the foreign key references on the users table
+		// second and third parameters are only needed if not using primary key "id" in the users table
+		return $this->hasMany('Post', 'user_id', 'user_id');
+	}
 }
 
 
