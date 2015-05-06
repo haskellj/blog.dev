@@ -35,11 +35,13 @@ class UserTableSeeder extends Seeder {
 				'password' => $faker->password 
 			));
 		}
-		// $user1 = new User;
-		// $user1->username = 'guest';
-		// $user1->email = 'guest@gmail.com';
-		// $user1->password = $_ENV['USER_PASS'];
-		// $user1->save();
+
+		// a user with known password for testing purposes
+		$user1 = new User;
+		$user1->username = 'guest';
+		$user1->email = 'guest@gmail.com';
+		$user1->password = $_ENV['USER_PASS'];
+		$user1->save();
 
 		// $user2 = new User;
 		// $user2->username = 'test';
@@ -66,7 +68,7 @@ class PostsTableSeeder extends Seeder {
 
 		$faker = Factory::create();
 
-		for($i = 0; $i < 100; $i++) {
+		for($i = 0; $i < 101; $i++) {
 			$words = rand(3, 8);
 			$moreWords = rand(10, 50);
 			$title = $faker->sentence($words);
