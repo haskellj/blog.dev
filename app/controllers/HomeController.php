@@ -19,6 +19,7 @@ class HomeController extends BaseController {
 	{
 		// first parameter is name of filter, the second is an array containing either 'only' or 'except' associated with its own array of HomeController methods that direct to certain pages
 		$this->beforeFilter('auth', array('only' => array('updateAll')));
+		parent::__construct();
 	}
 
 	public function showHome()
