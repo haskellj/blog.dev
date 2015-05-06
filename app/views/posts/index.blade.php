@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('all-posts')
-	<h1>All Posts: </h1>
+	<h1 id='all'>All Posts: </h1>
 
 	{{-- Pagination Links --}}
 	<div class="pagination-centered">
@@ -16,6 +16,7 @@
 					<p class='date'>Last updated: {{{ $post->updated_at }}}</p>
 					<h3><a href="{{{ action('PostsController@show', $post->slug) }}}">{{{ $post->title }}}</a></h3>
 					<h5>{{{ $post->body }}}</h5>
+					<h6 id='postedBy'>By: {{{ $post->user->username }}}</h6>
 				</div>
 			</div>
 		</div>
