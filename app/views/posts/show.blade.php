@@ -5,10 +5,11 @@
 	<div class='row'>
 		<div class='large-10 medium-10 medium-centered large-centered columns'>
 			<div class='panel'>
-				<h3>{{{$post->title}}}</h3>
-				<h5>{{{$post->body}}}</h5>
 				<p class='date'>Created on: {{{$post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A')}}}</p>
 				<p class='date'>Last updated: {{{ $post->updated_at }}}</p>
+				<h3>{{{$post->title}}}</h3>
+				<h5>{{{$post->body}}}</h5>
+				<h6 id='postedBy'>By: {{{ $post->user->username }}}</h6>
 			</div>
 			<div class='row'>
 				<div class='large-3 medium-4 columns'>
