@@ -17,12 +17,12 @@
 
 		@if (Session::has('successFlash'))
 	    	<div class='row'>
-	    		<div data-alert class="alert-box success round large-10 columns">{{{ Session::get('successFlash') }}}</div>
+	    		<div data-alert class="alert-box success round large-10 large-centered columns">{{{ Session::get('successFlash') }}}</div>
 			</div>
 		@endif
 		@if (Session::has('errorFlash'))
 		    </div class='row'>
-		    	<div data-alert class="alert-box warning round large-10 large-offset-1 columns">{{{ Session::get('errorFlash') }}}</div>
+		    	<div data-alert class="alert-box warning round large-10 large-offset-1 large-centered columns">{{{ Session::get('errorFlash') }}}</div>
 			</div>
 		@endif
 
@@ -37,7 +37,7 @@
 				<!-- @yield('error') -->
 			</div>
 			<div id='form'>
-				@yield('post-form')
+				@yield('form')
 			</div>
 			<div id='aboutContent'>
 				@yield('about')
