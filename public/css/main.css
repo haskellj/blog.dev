@@ -366,7 +366,7 @@ span.prefix {
 }
 
 /*---------------------------------------------------*/
-/*              Begin Navbar                         */
+/*                  Begin Navbar                     */
 /*---------------------------------------------------*/
 .top-bar {
     background: rgba(49, 39 , 29, 0.4);
@@ -375,7 +375,10 @@ span.prefix {
     box-shadow:         0px 3px 2px 0px rgba(0, 22, 45, 0.5);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 
 }
-
+.top-bar-section ul li {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 1.3em;
+}
 /* navbar links */
 .top-bar-section ul li > a {
     /*font-family: 'Anonymous Pro', monospace;*/
@@ -399,26 +402,96 @@ span.prefix {
     background: #001f3f;
     color: #7FDBFF;
 }*/
-    /* right navbar divs */
+
+/*---------------------------------------------------*/
+/*              Right-side Navbar                    */
+/*---------------------------------------------------*/
+    
+    /*------- Begin Search Box -------*/
+    
+    @import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+
+    #search input[type="text"] {
+        /*border-color: #5b504a;*/
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.0980392) 2px 2px 3px 2px inset;
+        height: 45px;
+        position: relative;
+        top: 0px;
+        font-size: 1em;
+        background: rgba(49, 39 , 29, 0);
+        color: #fff;
+    }
+    /* WebKit browsers */
+    #search input[type="text"]::-webkit-input-placeholder {     
+        font-family: FontAwesome;
+        font-weight: lighter;
+        overflow: visible;
+        vertical-align: top;
+        display: inline-block;
+        padding-left: 5px;
+        padding-top: 2px;
+        color: #5b504a;
+    }
+    /* Mozilla Firefox 19+ */
+    #search input[type="text"]::-moz-placeholder { 
+        font-family: FontAwesome;
+        font-weight: lighter;
+        overflow: visible;
+        vertical-align: top;
+        display: inline-block;
+        padding-left: 5px;
+        padding-top: 2px;
+        color: #5b504a;
+    }
+    /* Mozilla Firefox 4 to 18 */
+    #search input[type="text"]:-moz-placeholder { 
+        font-family: FontAwesome;
+        font-weight: lighter;
+        overflow: visible;
+        vertical-align: top;
+        display: inline-block;
+        padding-left: 5px;
+        padding-top: 2px;
+        color: #5b504a;
+    }
+    /* Internet Explorer 10+ */
+    #search input[type="text"]:-ms-input-placeholder { 
+        font-family: FontAwesome;
+        font-weight: lighter;
+        overflow: visible;
+        vertical-align: top;
+        display: inline-block;
+        padding-left: 5px;
+        padding-top: 2px;
+        color: #5b504a;
+    }
+    /*------- End Search Box -------*/
+
+
     .top-bar-section li:not(.has-form) a:not(.button) {
         color: #fff;
-        font-size: 1em;
-        background: rgba(49, 39 , 29, 0.4);
+        font-size: 1.3em;
+        /*font-weight: bold;*/
+        background: none;
     }
         .top-bar-section li:not(.has-form) a:not(.button):hover {
-            background-color: #221c35;
-            background: #001F3F;
-            color: #82BAED;
+            background: #3F542D;
+            color: #A1948F;
         }
-            .top-bar-section li.active:not(.has-form) a:not(.button) {
-                color: #fff;
-                font-size: 1em;
-                background: rgb(52, 75, 101);
-            }
-                .top-bar-section li.active:not(.has-form) a:not(.button):hover {
-                    background: #001f3f;
-                    color: #82BAED;
-                }
+
+/*---------------------------------------------------*/
+/*              Left-side Navbar                     */
+/*---------------------------------------------------*/        
+.top-bar-section li.active:not(.has-form) a:not(.button) {
+    color: #fff;
+    font-size: 1.3em;
+    background: #344b65;
+}
+    .top-bar-section li.active:not(.has-form) a:not(.button):hover {
+        background: #3F542D;
+        color: #A1948F; 
+    }
 
 .top-bar-section ul li > a.button:hover, .top-bar-section ul li > a.button:focus {
     color: #7FDBFF;
@@ -437,28 +510,31 @@ span.prefix {
     border-right: solid 1px #001F3F;
 }
 
+
 /*---------------------------------------------------*/
-/* Drop down nav styles                              */
+/* Drop-down nav styles                              */
 /*---------------------------------------------------*/
 
-.top-bar-section .dropdown li a {
-    background: #1A3552; }
-  .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
-    color: #7FDBFF;
-    background: #1A3552; }
-  .top-bar-section .dropdown li:not(.has-form):not(.active):hover > a:not(.button) {
-    color: #82BAED;
-    background: #001f3f; }
-  .top-bar-section .dropdown li label {
-    background: #1A3552; }
+.top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
+    background-color: #344b65;
+    background: #344b65; 
+    font-size: 1em;
+}
 
+/* dropdown background and font on hover */
+.top-bar-section .dropdown li:not(.has-form):not(.active):hover > a:not(.button) {
+    background: #3F542D;
+    color: #A1948F; 
+}
+
+/* dropdown parent div on hover of dropdown */
 .top-bar-section ul li:hover:not(.has-form)>a {
-    background-color: #1A3552;
-    background: #1A3552;
+    background-color: #344b65;
+    background: #344b65;
 }
 
 /************* Removes down arrow *************/
-
+/*
 .top-bar ul > li.has-dropdown a:after {
     content: "";
     display: none;
@@ -475,10 +551,25 @@ span.prefix {
 }
     .top-bar-section .has-dropdown>a {
         padding-right: .9375rem !important;
-    }
+    }*/
 
 /**********************************************/
 
+/*---------------------------------------------------*/
+/*       Collapsed navbar (mobile -responsive)       */
+/*---------------------------------------------------*/
+
+.top-bar.expanded, .top-bar.expanded li.active:not(.has-form) a:not(.button){
+    /*background-color: #344b65;
+    background: #344b65;*/
+    background: rgb(49, 39 , 29);
+}
+
+
+
+/*---------------------------------------------------*/
+/*         Individual Ads                            */
+/*---------------------------------------------------*/
 #date_created {
     text-align: right;
 }
@@ -510,4 +601,5 @@ span.prefix {
     border-radius: 15px;
     text-align: center;
 }*/
+
 
