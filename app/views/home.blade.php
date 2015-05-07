@@ -1,5 +1,24 @@
 @extends('layouts.master')
 
+@section('homepage-pic')
+	<!-- Start Header Pic -->
+		<section id="homepage-hero">
+		    <div class="row">
+		        <div class="large-8 large-offset-2 columns">
+		            <h1 class="hero">Who is Jamie Haskell?</h1>
+		            <hr>
+		            <h3 id="subhero">And what can she do for you?</h3>
+		        </div>
+		    </div>
+		    <br>
+		    {{-- <div class="row">
+		        <div class="medium-12 columns text-center">
+		            <p class="arrow"><i class="fa fa-angle-down"></i></p>
+		        </div>
+		    </div> --}}
+	<!-- End Header Pic -->
+@stop
+
 @section('about')
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
