@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder {
 
 class UserTableSeeder extends Seeder {
 
-	// Fill db with users
+	// Fill db with fake users for testing purposes
 	public function run()
 	{
 		$faker = Factory::create();
@@ -45,18 +45,6 @@ class UserTableSeeder extends Seeder {
 		$user1->email = 'guest@gmail.com';
 		$user1->password = $_ENV['USER_PASS'];
 		$user1->save();
-
-		// $user2 = new User;
-		// $user2->username = 'test';
-		// $user2->email = 'test@gmail.com';
-		// $user2->password = $_ENV['USER_PASS'];
-		// $user2->save();
-
-		// $user3 = new User;
-		// $user3->username = 'jamie';
-		// $user3->email = 'jamie@gmail.com';
-		// $user3->password = $_ENV['USER_PASS'];
-		// $user3->save();
 
 	}
 }
@@ -92,6 +80,7 @@ class PostsTableSeeder extends Seeder {
 		// 	$post->user_id = $user->user_id;
 		// 	$post->save();
 		// }
+
 		// // Randomly assign 7 more posts to users
 		// for($i = 4; $i <= 10; $i++) {
 		// 	$post = new Post;
