@@ -1,20 +1,3 @@
-<!-- Start Header Pic -->
-	<section id="homepage-hero">
-	    <div class="row">
-	        <div class="large-8 large-offset-2 columns">
-	            <h1 class="hero">Who is Jamie Haskell?</h1>
-	            <hr>
-	            <h3 id="subhero">And what can she do for you?</h3>
-	        </div>
-	    </div>
-	    <br>
-	    {{-- <div class="row">
-	        <div class="medium-12 columns text-center">
-	            <p class="arrow"><i class="fa fa-angle-down"></i></p>
-	        </div>
-	    </div> --}}
-<!-- End Header Pic -->
-
 <!-- Start Navbar -->
 		<div class="sticky">
 			<nav class="top-bar" data-topbar role="navigation">
@@ -29,6 +12,12 @@
 			  	<section class="top-bar-section">
 				    <!-- Right Nav Section -->
 				    <ul class="right">
+				    	<li>
+				    		<form id="search" method="GET" action="{{{ action('PostsController@index') }}}">
+				    			{{-- <i class="fa fa-search"></i> --}}
+				    			<input type='text' name='search' value='' placeholder="&#61442;">
+				    		</form>
+				    	</li>
 				      	<li><a href="{{{ action('HomeController@showResume') }}}">Resume</a></li>
 				      	<li class="has-dropdown not-click">
 				        	<a href="{{{ action('HomeController@showPortfolio') }}}">Portfolio</a>
