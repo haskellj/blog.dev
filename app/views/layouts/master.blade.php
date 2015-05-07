@@ -10,8 +10,9 @@
 </head>
 <body>
 	<div id="wrap" class="clearfix">
-		@yield('error')
+	
 		<header>
+			@yield('homepage-pic')
 			@include('partials.navbar')
 		</header>
 
