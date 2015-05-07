@@ -14,11 +14,21 @@ class PostsController extends \BaseController {
 	 * @return Response
 	 */
 	public function index()
-	{	// Instead of just $post = Post::all();
-		// Get all posts and create pagination links based off them.
-		$posts = Post::with('user')->orderBy('id', 'desc')->paginate(4);
-		$data = ['posts' => $posts];
-		return View::make('posts.index')->with($data);
+	{	
+		// Instead of just $post = Post::all();
+		// Get all posts that match the search (if there is one) and create pagination links based off them.
+		$query = Post::with('user');
+
+		if (Input::has('search')) {
+			$search = Input::get('search');
+
+			$query->where('title', 'like', "%$search%")
+				  ->orWhere('body', 'like', "%$search%");
+		}
+
+		$posts = $query->orderBy('created_at', 'desc')->paginate(4);
+		
+		return View::make('posts.index')->with(['posts' => $posts]);
 	}
 
 
