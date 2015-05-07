@@ -33,8 +33,8 @@ class UserTableSeeder extends Seeder {
 
 		for($i = 0; $i < 100; $i++) {
 			$user = User::create(array(
-				'username' => $faker->userName,
-				'email' => $faker->email,
+				'username' => $faker->unique()->userName,
+				'email' => $faker->unique()->email,
 				'password' => $faker->password 
 			));
 		}
@@ -58,14 +58,13 @@ class PostsTableSeeder extends Seeder {
 
 		for($i = 0; $i < 101; $i++) {
 			$words = rand(3, 8);
-			$title = $faker->sentence($words);
-			$body = $faker->realText();
-			// $user_id = rand(1, 100);
+			$title = $faker->unique()->sentence($words);
 			$user = User::all()->random();
+			// $user_id = rand(1, 100);
 
 			$post = Post::create(array(
 				'title' => $title,
-				'body' => $body,
+				'body' => $faker->realText(),
 				'slug' => $title,
 				'user_id' => $user->user_id
 			));
