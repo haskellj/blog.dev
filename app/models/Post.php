@@ -5,7 +5,7 @@
 	{
 		protected $table = 'posts';
 
-		protected $rules = [
+		public static $rules = [
 			'title'      => 'required|max:100',
     		'body'       => 'required|max:10000'
 		];
