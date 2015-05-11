@@ -18,8 +18,8 @@
 				    			<input type='text' name='search' value='' placeholder="&#61442;">
 				    		</form>
 				    	</li>
-				      	<li><a href="{{{ action('HomeController@showResume') }}}">Resume</a></li>
-				      	<li class="has-dropdown not-click">
+				      	<li id='resume'><a href="{{{ action('HomeController@showResume') }}}">Resume</a></li>
+				      	<li id='portfolio' class="has-dropdown not-click">
 				        	<a href="{{{ action('HomeController@showPortfolio') }}}">Portfolio</a>
 				        	<ul class="dropdown">
 				          		<li><a href="http://adlister.dev">adLister</a></li>
@@ -33,7 +33,7 @@
 
 				    <!-- Left Nav Section -->
 				    <ul class="left">
-				      <li class='active'><a href="{{{action('HomeController@showHome')}}}">About Me</a></li>
+				      <li id='about' class=''><a href="{{{action('HomeController@showHome')}}}">About</a></li>
 				    </ul>
 			    </section>
 			</nav>
