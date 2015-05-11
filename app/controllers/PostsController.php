@@ -72,6 +72,7 @@ class PostsController extends \BaseController {
 
 	        // validation succeeded, create and save the post
 			$post = new Post;
+			$post->user_id = Auth::user()->user_id;
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 			$post->slug = Input::get('title');	// will connect individual words in the title with hyphens for use as a url appendage
