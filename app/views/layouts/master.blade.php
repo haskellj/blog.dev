@@ -57,7 +57,6 @@
 			@include('partials.footer')
 	</div>
 
-	<script src="/js/vendor/jquery.js"></script>
 	<script src="/js/foundation.min.js"></script>
 	<script src="/js/foundation/foundation.js"></script>
   	<script src="/js/foundation/foundation.topbar.js"></script>

@@ -9,9 +9,13 @@
 
 <!-- Custom Google Fonts -->
 <link href='http://fonts.googleapis.com/css?family=Montserrat+Alternates:400|Montserrat:400|Anonymous+Pro:700,400,700italic,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
 
 <!-- Custom CSS -->
 <link rel="stylesheet" href="/css/main.css" />
 
 <!-- Modernizr.js -->
 <script src="/js/vendor/modernizr.js"></script>
+
+<!-- Custom js -->
+<script src="/js/vendor/jquery.js"></script>
